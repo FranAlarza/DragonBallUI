@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct DragonBallUIApp: App {
-    let persistenceController = PersistenceController.shared
+    //let persistenceController = PersistenceController.shared
+    @StateObject var rootViewModel = RootViewModel()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            RootView()
+                .environmentObject(rootViewModel)
         }
     }
 }
